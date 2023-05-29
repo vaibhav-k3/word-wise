@@ -5,7 +5,8 @@ const wordSchema = mongoose.Schema({
     Sentence:String,
     relatedWords:String,
     Sentence:String,
-    Difficulty:String
+    Difficulty:String,
+    "Serial Number": mongoose.SchemaTypes.Number
 })
 
 exports.wordSchema = wordSchema
