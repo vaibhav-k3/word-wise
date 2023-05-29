@@ -8,7 +8,7 @@ DUMMY_USER = {
     'test_scores':[
         {
             'test_type':'Revision',
-            'date': date('2023-01-01'),
+            'date': Date('2023-01-01'),
             'score': {
                 'easy':3,
                 'medium':4,
@@ -17,7 +17,7 @@ DUMMY_USER = {
         },
         {
             'test_type':'Revision',
-            'date': date('2023-01-01'),
+            'date': Date('2023-01-01'),
             'score': {
                 'easy':3,
                 'medium':4,
