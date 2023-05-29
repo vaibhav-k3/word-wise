@@ -10,7 +10,7 @@ router.get('/word/:word', async(req, res)=>{
     try {
         const wordModel = db_config.wordModel
         const word = await wordModel.findOne({Word:requestedWord}).exec()
-        res.json(word)
+        response = word === null ? res.status(400).json(errors.WORD_FETCH_ERROR) : res.json(word)
     }
     catch{
         res.status(400).json(errors.WORD_FETCH_ERROR)
