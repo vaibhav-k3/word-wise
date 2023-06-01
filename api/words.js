@@ -33,4 +33,20 @@ router.get('/allWords', async(req, res)=>{
 
 })
 
+// get words from set
+router.get('/practice', async(req, res)=>{
+    try {
+        const category = req.query.category
+        const setno = parseInt(req.query.practiceset)
+        const wordModel = db_config.wordModel
+        const words = await wordModel.find({Difficulty:category}).skip(setno-1).limit(25).exec()
+        const response = words.length <= 0 ? res.status(400).json(errors.WORD_FETCH_ERROR) : res.json(words)
+        return response
+    }
+    catch(err){
+        res.status(400).send(err)
+    }
+
+})
+
 module.exports = router
