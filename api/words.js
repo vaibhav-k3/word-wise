@@ -77,18 +77,3 @@ router.get('/practice', async (req, res) => {
 })
 
 module.exports = router
-
-sample_doc = {
-    "_id": "6474e24bee76df6cc3e992fa",
-    "Serial Number": 1,
-    "Word": "upbraid",
-    "Meaning": "to scold",
-    "relatedWords": "reproach, admonish, reprove",
-    "Sentence": "He was upbraided for his untidy appearance.",
-    "Difficulty": "Easy",
-    "option": [
-        "meaning1",
-        "meaning2",
-        "meaning3"
-    ]
-}
