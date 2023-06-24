@@ -9,4 +9,9 @@ const wordSchema = mongoose.Schema({
     "Serial Number": mongoose.SchemaTypes.Number
 })
 
+const userSchema = mongoose.Schema({
+    userEmail:String,
+    userPassword:String
+})
+exports.userSchema = userSchema
 exports.wordSchema = wordSchema
