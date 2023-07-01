@@ -11,7 +11,11 @@ const wordSchema = mongoose.Schema({
 
 const userSchema = mongoose.Schema({
     userEmail:String,
-    userPassword:String
+    userPassword:String,
+    firstName:String,
+    lastName:String,
+    DOB:String,
+    gender:String
 })
 exports.userSchema = userSchema
 exports.wordSchema = wordSchema

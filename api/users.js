@@ -44,6 +44,10 @@ router.get('/getUser',(req,res)=>{
 router.post('/signup', async (req, res) =>{
     const userEmail = req.body.userEmail
     const userPassword = req.body.userPassword
+    const firstName = req.body.firstName
+    const lastName = req.body.lastName
+    const DOB = req.body.DOB
+    const gender = req.body.gender
     let check = await userExists(userEmail)
     if (check){
         return res.status(401).json({
@@ -52,7 +56,7 @@ router.post('/signup', async (req, res) =>{
     }
     else{
         const userModel = db_config.userModel
-        const newUser = new userModel({userEmail:userEmail, userPassword:userPassword})
+        const newUser = new userModel({userEmail:userEmail, userPassword:userPassword, firstName:firstName, lastName:lastName, DOB:DOB, gender:gender})
         await newUser.save()
         return res.status(200).json({
             "status":"user created"
