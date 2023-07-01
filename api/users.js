@@ -44,6 +44,8 @@ router.get('/getUser',(req,res)=>{
 router.post('/signup', async (req, res) =>{
     const userEmail = req.body.userEmail
     const userPassword = req.body.userPassword
+    console.log(req.body)
+    console.log(userEmail,userPassword)
     let check = await userExists(userEmail)
     if (check){
         return res.status(401).json({
