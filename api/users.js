@@ -56,7 +56,7 @@ router.get('/getUser/:userEmail', async (req,res)=>{
 })
 
 router.post('/signup', async (req, res) =>{
-    console.log("/signup api hit")
+    // console.log("/signup api hit")
     const userEmail = req.body.userEmail
     const userPassword = req.body.userPassword
 
