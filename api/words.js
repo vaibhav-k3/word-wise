@@ -6,6 +6,7 @@ const router = express.Router()
 
 // get single word details from DB
 router.get('/word/:word', async (req, res) => {
+    console.log('/word/:word api hit')
     const requestedWord = req.params['word']
     try {
         const wordModel = db_config.wordModel

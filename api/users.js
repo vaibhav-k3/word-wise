@@ -1,6 +1,7 @@
 const express = require("express")
 const router = express.Router()
 const db_config = require("../config/db_config")
+const { USER_FETCH_ERROR } = require("../config/errors")
 DUMMY_USER = {
     'userName':'test',
     'userPassword':'Pass',
@@ -37,11 +38,25 @@ const userExists =  async (userEmail)=>{
     }
 
 }
-router.get('/getUser',(req,res)=>{
+
+// get user details by email from db
+router.get('/getUser/:userEmail', async (req,res)=>{
+    const requestedUser = req.params['userEmail'] 
+    try{
+        const userModel = db_config.userModel
+        const user =  await userModel.findOne({userEmail : requestedUser}).exec()
+        const response = user === null ? res.status(404).json(USER_FETCH_ERROR) : res.json(user)
+        return response
+    }
+    catch{
+        res.status(404).json(errors.USER_FETCH_ERROR)
+    }
+
     res.json(DUMMY_USER)
 })
 
 router.post('/signup', async (req, res) =>{
+    console.log("/signup api hit")
     const userEmail = req.body.userEmail
     const userPassword = req.body.userPassword
 
